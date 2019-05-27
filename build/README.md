@@ -33,3 +33,5 @@ In the widget properties you can set:
 The ID of the Eventbrite event. You can find the id in the URL of an event e.g. https://www.eventbrite.de/e/seo-in-web-development-tickets-61423296734
 
 For the teaserlist create a page and add the Eventbridelist widget. You must save a permalink which contains the word *events*
+
+If you leave the Eventbride id empty you can even create an event in Scrivito. This event will also be displayed in the teaser list.

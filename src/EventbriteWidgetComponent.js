@@ -14,6 +14,62 @@ function EventLogo(props) {
   return <img style={{maxHeight:"430px"}} src={props.logo} />
 }
 
+function EventImage(props) {
+  return <Scrivito.ImageTag content={props.image} />
+}
+
+function EventDetailLink(props) {
+   return (
+   <p><a href={props.id}><b>Details zur Veranstaltung</b></a></p>
+   )
+}
+
+function EventBackLink(props) {
+  return (
+    <p><Scrivito.LinkTag to={props.link}><b>Zurück zur Veranstaltungsliste</b></Scrivito.LinkTag></p>
+  )
+}
+
+function EventBody(props) {
+  return (
+    <div className="article" dangerouslySetInnerHTML={{__html: props.body}} />
+  )
+}
+
+function EventLocation(props) {
+  return (
+    <h4>{props.location}</h4>
+  )
+}
+
+function EventOrganizer(props) {
+  return (
+    <h5 className="h4">{props.organizer}</h5>
+  )
+}
+
+function EventAddress(props) {
+  return (
+    <p>{props.address1}<br/>
+      {props.address2}
+    </p>
+  )
+}
+
+function EventDate(props) {
+  return (
+    <p><b>Beginn:</b> {props.start} <br/>
+      <b>Ende:</b> {props.end}
+    </p>
+  )
+}
+
+function EventSubscribe(props) {
+  return (
+    <a target="_blank" className="btn btn-primary btn-block" href={props.link}>Anmelden</a>
+  )
+}
+
 function formatDate(date, format) {
   // dateFormat uses Date.now if no date is given.
   if (!date) {
@@ -112,30 +168,57 @@ class EventbriteComponent extends React.Component {
     }*/
 
     return (
+      <div>
+      { this.widget.get('eventbriteId') ?
       <div className="row">
       <div className="col col-8">
       <EventTitle name={this.state.name} />
       <EventSummary summary={this.state.summary} />
       {events ?
-      <p><a href={`/${this.widget.obj().id()}`}><b>Details zur Veranstaltung</b></a></p>
+      <EventDetailLink id={`/${this.widget.obj().id()}`} />
+
       :
-      <p><Scrivito.LinkTag to={"/events/aktuelle-veranstaltungen.html"}><b>Zurück zur Veranstaltungsliste</b></Scrivito.LinkTag></p>
+      <EventBackLink link={"/events/aktuelle-veranstaltungen.html"} />
       }
       <EventLogo  logo={this.state.logo} />
-      {!events && <div className="article" dangerouslySetInnerHTML={{__html: this.state.event}} />}
+
+      {!events && <EventBody body={this.state.event} />}
 
       </div>
       <div className="col col-4">
-      <h4>{this.state.venueName}</h4>
-      <p>{this.state.venueAddress_1}<br/>
-      {this.state.venueAddress_2}
-      </p>
-      <p><b>Beginn:</b> {formatDate(this.state.start,'dd.mm.yy HH:MM' )} <br/>
-      <b>Ende:</b> {formatDate(this.state.end, 'dd.mm.yy HH:MM')}
-      </p>
-
-      <a target="_blank" className="btn btn-primary btn-block" href={this.state.url}>Anmelden</a>
+        <EventLocation location={this.state.venueName} />
+        <EventAddress address1={this.state.venueAddress_1} address2={this.state.venueAddress_2} />
+        <EventDate start={formatDate(this.state.start,'dd.mm.yy HH:MM' )} end={formatDate(this.state.end, 'dd.mm.yy HH:MM')}/>
+        <EventSubscribe link={this.state.url} />
       </div>
+      </div>
+      :
+      <div className="row">
+        <div className="col col-8">
+      <EventTitle name={this.widget.get('headline')} />
+      <EventSummary summary={this.widget.get('description')} />
+      {events ?
+      <EventDetailLink id={`/${this.widget.obj().id()}`} />
+
+      :
+      <EventBackLink link={"/events/aktuelle-veranstaltungen.html"} />
+      }
+      <EventImage  image={this.widget.get('image')} />
+
+      {!events && <EventBody body={this.widget.get('body')} />}
+
+      </div>
+      <div className="col col-4">
+        <EventLocation location={this.widget.get('location')} />
+        <EventOrganizer organizer={this.widget.get('organizer')} />
+        <EventAddress address1={this.widget.get('street')} address2={this.widget.get('plzCity')} />
+        <EventDate start={formatDate(this.widget.get('start'),'dd.mm.yy ') + this.widget.get('startTime')} end={formatDate(this.widget.get('end'), 'dd.mm.yy ') + this.widget.get('endTime')}/>
+
+      </div>
+      </div>
+
+
+      }
       </div>
     );
   }

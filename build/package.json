@@ -1,6 +1,6 @@
 {
   "name": "scrivito-eventbrite",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "A React component/Scrivito widget to get events from eventsbrite.",
   "main": "index.js",
   "peerDependencies": {
