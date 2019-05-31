@@ -4,3 +4,6 @@ import "./EventbriteWidgetEditingConfig";
 import "./EventbriteListWidgetClass";
 import "./EventbriteListWidgetComponent";
 import "./EventbriteListWidgetEditingConfig";
+import "./EventbriteSliderWidgetClass";
+import "./EventbriteSliderWidgetComponent";
+import "./EventbriteSliderWidgetEditingConfig";

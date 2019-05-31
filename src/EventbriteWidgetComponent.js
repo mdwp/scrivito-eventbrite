@@ -157,7 +157,7 @@ class EventbriteComponent extends React.Component {
       if (!currentPage) return;
 
       const currentPageUrl = Scrivito.urlFor(currentPage);
-      const events = currentPageUrl.includes('events');
+      const events = currentPageUrl.includes('events') || Scrivito.Obj.root().path();
 
     /*if (this.state.event === '' && Scrivito.isInPlaceEditingActive()) {
       return (

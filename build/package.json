@@ -1,6 +1,6 @@
 {
   "name": "scrivito-eventbrite",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "A React component/Scrivito widget to get events from eventsbrite.",
   "main": "index.js",
   "peerDependencies": {
@@ -26,7 +26,8 @@
   "homepage": "https://github.com/mdwp/scrivito-eventbrite#readme",
   "dependencies": {
     "axios": "^0.18.0",
-    "dateformat": "3.0.3"
+    "dateformat": "3.0.3",
+    "react-slick": "^0.24.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
