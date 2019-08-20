@@ -1,9 +1,7 @@
 # Scrivito Eventbrite
 [![CMS: Scrivito](https://img.shields.io/badge/CMS-Scrivito-brightgreen.svg)](https://scrivito.com) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-Two React component/Scrivito widgets to get Eventbrite events from the Eventbrite REST-API.
-The Eventbrite widget get an single event from Eventbrite.
-The Eventbritelist widget display a teaser list with all events on your Scrivito site.
+Two React components/Scrivito widgets to get Eventbrite events from the Eventbrite REST-API. The Eventbrite widget displays a single event from Eventbrite. The Eventbrite list widget displays a teaser list with all events on your Scrivito site.
 
 ## Screenshot
 
@@ -19,7 +17,7 @@ Open your terminal.
 $ npm install scrivito-eventbrite
 ```
 
-Import the widget in your javascript (e.g. in `index.js` or `Widgets/index.js`).
+Import the widget in your javascript `src/Widgets/index.js`.
 
 Add this line to your index.js:
 

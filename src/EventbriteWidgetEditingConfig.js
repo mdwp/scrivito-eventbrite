@@ -48,8 +48,10 @@ Scrivito.provideEditingConfig('EventbriteWidget', {
 
     },
 
+
     properties: [
         'eventbriteId',
+        'ikt',
         'headline',
         'description',
         'image',
@@ -63,4 +65,8 @@ Scrivito.provideEditingConfig('EventbriteWidget', {
         'end',
         'endTime'
     ],
+
+    initialContent: {
+        ikt: 'false',
+    },
 });
