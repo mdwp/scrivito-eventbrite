@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/mdwp/scrivito-eventbrite#readme",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.2",
     "dateformat": "3.0.3",
     "react-slick": "^0.24.0"
   },
